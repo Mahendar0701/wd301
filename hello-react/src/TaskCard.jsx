@@ -3,9 +3,9 @@ import "./TaskCard.css";
 
 const TaskCard = (props) => {
   console.log(props);
-  let taskDate = null;
+  let taskDate;
   if (props.dueDate) {
-    taskDate = <p>Due on: {props.dueDate}</p>;
+    taskDate = <p>Due date: {props.dueDate}</p>;
   }
   if (props.completedAtDate) {
     taskDate = <p>Completed on: {props.completedAtDate}</p>;
@@ -14,7 +14,7 @@ const TaskCard = (props) => {
     <div className="TaskItem w-full p-5">
       <h2 className="text-xl font-bold mb-2">{props.title}</h2>
       {taskDate}
-      <p>Assignee:{props.assigneeName}</p>
+      <p>Assignee: {props.assigneeName}</p>
     </div>
   );
 };
