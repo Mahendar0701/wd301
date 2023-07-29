@@ -8,10 +8,10 @@ function App() {
     <>
       <div className="ml-36 my-5">
         <h1 className="text-2xl font-bold my-2">Smarter Tasks</h1>
-        <span className="text-xl font-medium">Project: </span>
-        <span className="text-xl">
-          Graduation Final Year Project(Revamp College Website)
-        </span>
+        <p className="font-bold text-sm">
+          Project: Graduation FInal Year Project (Revamp College Website)
+        </p>
+        <span className="text-xl"></span>
       </div>
       <div className="flex justify-center">
         <div className="flex-1 w-36 px-10 border-2 rounded-xl border-grey-900 p-5 ml-32">
@@ -37,9 +37,9 @@ function App() {
             assigneeName="Rohit M"
           />
           <TaskCard
-            title="Get the approval from principal"
+            title="Get approval from principal"
             completedAtDate="20th April"
-            assigneeName="Ajoy S"
+            assigneeName="Ajay S"
           />
         </div>
       </div>
