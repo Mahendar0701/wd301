@@ -1,6 +1,4 @@
 /* eslint-disable no-unused-vars */
-import "./App.css";
-
 import TaskCard from "./TaskCard";
 
 function App() {
@@ -9,7 +7,7 @@ function App() {
       <div className="mx-10 my-5">
         <h1 className="text-2xl font-bold my-2 mx-32">Smarter Tasks</h1>
         <p className="font-bold text-sm mx-32 mb-3">
-          Project: Graduation Final Year Project (Revamp College Website)
+          Project: Graduation FInal Year Project (Revamp College Website)
         </p>
         <div className="flex justify-center">
           <div className="flex-1 w-36 px-10 border-2 rounded-xl border-grey-900 p-5 ml-32">
