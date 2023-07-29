@@ -20,14 +20,13 @@ function App() {
             title="Build the website with static content"
             dueDate="10th April"
             assigneeName="Rohit S"
-            status="pending"
           />
           <TaskCard
             title="Add blog"
             dueDate="22nd March"
             assigneeName="Rohit M"
-            status="pending"
           />
+          <button className="bg-gray-200 px-5 rounded-md">+ New Task</button>
         </div>
 
         <div className="flex-1 w-36 px-10 border-2 rounded-xl border-grey-900 p-5 ml-14 mr-32">
@@ -36,13 +35,11 @@ function App() {
             title="Design the mockup"
             completedAtDate="10th April"
             assigneeName="Rohit M"
-            status="done"
           />
           <TaskCard
             title="Get the approval from principal"
             completedAtDate="20th April"
             assigneeName="Ajoy S"
-            status="done"
           />
         </div>
       </div>
