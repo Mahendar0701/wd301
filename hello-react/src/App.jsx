@@ -13,7 +13,7 @@ function App() {
         </p>
         <div className="flex justify-center">
           <div className="flex-1 w-36 px-10 border-2 rounded-xl border-grey-900 p-5 ml-32">
-            <h1 className="text-2xl font-bold text-center pb-5">Pending</h1>
+            <h1 className="text-2xl font-bold text-center pb-5">pending</h1>
             <TaskCard
               title="Build the website with static content"
               dueDate="10th April"
@@ -28,7 +28,7 @@ function App() {
           </div>
 
           <div className="flex-1 w-36 px-10 border-2 rounded-xl border-grey-900 p-5 ml-14 mr-32">
-            <h1 className="text-2xl font-bold bold text-center pb-5">Done</h1>
+            <h1 className="text-2xl font-bold bold text-center pb-5">done</h1>
             <TaskCard
               title="Design the mockup"
               completedAtDate="10th April"
