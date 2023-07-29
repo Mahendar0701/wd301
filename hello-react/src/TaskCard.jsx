@@ -5,7 +5,7 @@ const TaskCard = (props) => {
   console.log(props);
   let taskDate;
   if (props.dueDate) {
-    taskDate = <p>Due date: {props.dueDate}</p>;
+    taskDate = <p>Due Date: {props.dueDate}</p>;
   }
   if (props.completedAtDate) {
     taskDate = <p>Completed on: {props.completedAtDate}</p>;
