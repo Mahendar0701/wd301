@@ -1,9 +1,16 @@
 /* eslint-disable react/prop-types */
+import React from "react";
 import "./TaskCard.css";
 
-const TaskCard = (props) => {
-  console.log(props);
-  let taskDate;
+interface TaskCardProps {
+  title: string;
+  dueDate?: string;
+  completedAtDate?: string;
+  assigneeName: string;
+}
+
+const TaskCard = (props: TaskCardProps) => {
+  let taskDate: string;
   if (props.dueDate) {
     taskDate = `Due date: ${props.dueDate}`;
   }
