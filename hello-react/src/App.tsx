@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import TaskCard from "./TaskCard.jsx";
+import TaskCard from "./TaskCard";
 
 function App() {
   return (
