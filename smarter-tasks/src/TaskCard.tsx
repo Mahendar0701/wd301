@@ -11,7 +11,7 @@ const TaskCard = (props: TaskCardProps) => {
   let taskDate: string;
   taskDate = "";
   if (props.dueDate) {
-    taskDate = `Due date: ${props.dueDate}`;
+    taskDate = `Due on: ${props.dueDate}`;
   }
   if (props.completedAtDate) {
     taskDate = `Completed on: ${props.completedAtDate}`;
