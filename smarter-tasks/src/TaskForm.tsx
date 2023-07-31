@@ -55,6 +55,7 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
           type="text"
           value={this.state.title}
           onChange={this.titleChanged}
+          required
         />
         <br />
         <label htmlFor="todoDescription">Description : </label>
@@ -73,6 +74,7 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
           type="text"
           value={this.state.dueDate}
           onChange={this.dueDateChanged}
+          required
         />
         <br />
         <button
