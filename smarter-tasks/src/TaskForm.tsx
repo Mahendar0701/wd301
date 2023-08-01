@@ -24,8 +24,14 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
       description: this.state.description,
       dueDate: this.state.dueDate,
     };
-    this.props.addTask(newTask);
-    this.setState({ title: "", description: "", dueDate: "" });
+
+    // this.props.addTask(newTask);
+    // this.setState({ title: "", description: "", dueDate: "" });
+
+    if (newTask.title.trim() !== "" && newTask.dueDate.trim() !== "") {
+      this.props.addTask(newTask);
+      this.setState({ title: "", description: "", dueDate: "" });
+    }
   };
 
   inputRef = React.createRef<HTMLInputElement>();
@@ -55,7 +61,7 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
           type="text"
           value={this.state.title}
           onChange={this.titleChanged}
-          required
+          // required
         />
         <br />
         <label htmlFor="todoDescription">Description : </label>
@@ -74,12 +80,12 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
           type="text"
           value={this.state.dueDate}
           onChange={this.dueDateChanged}
-          required
+          // required
         />
         <br />
         <button
           id="addTaskButton"
-          className="px-3 py-1 my-3 bg-gray-500 rounded"
+          className="px-3 py-1 my-3 bg-gray-200 hover:bg-gray-300 rounded"
           type="submit"
         >
           Add item
