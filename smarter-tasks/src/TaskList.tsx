@@ -11,7 +11,6 @@ interface Props {
 // interface State {}
 
 const TaskList = (props: Props) => {
-  // const TaskList: React.FC<Props> = ({ tasks, onDelete }) => {
   const list = props.tasks.map((task, idx) => (
     <li>
       <Task

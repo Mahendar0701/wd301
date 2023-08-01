@@ -2,10 +2,6 @@
 import "./TaskCard.css";
 import { TaskItem } from "./types";
 
-// interface Props extends TaskItem {
-//   onDelete: () => void;
-// }
-
 // interface TaskProp {
 //   title: string;
 //   description: string;
