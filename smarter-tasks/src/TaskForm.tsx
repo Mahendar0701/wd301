@@ -115,6 +115,7 @@ const TaskForm: React.FC<TaskFormProps> = (props: TaskFormProps) => {
   const addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     const newTask = {
+      id: 1,
       title: formState.title,
       description: formState.description,
       dueDate: formState.dueDate,

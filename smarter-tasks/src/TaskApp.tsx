@@ -48,12 +48,29 @@ const TaskApp = () => {
   );
 
   const addTask = (task: TaskItem) => {
-    setTaskAppState({ tasks: [...taskAppState.tasks, task] });
+    const nextId =
+      taskAppState.tasks.length > 0
+        ? taskAppState.tasks[taskAppState.tasks.length - 1].id! + 1
+        : 1;
+
+    const newTask: TaskItem = {
+      id: nextId,
+      title: task.title,
+      description: task.description,
+      dueDate: task.dueDate,
+    };
+    setTaskAppState({ tasks: [...taskAppState.tasks, newTask] });
   };
 
-  const deleteTask = (index: number) => {
-    const updatedTasks = [...taskAppState.tasks];
-    updatedTasks.splice(index, 1);
+  // const deleteTask = (index: number) => {
+  //   const updatedTasks = [...taskAppState.tasks];
+  //   updatedTasks.splice(index, 1);
+  //   setTaskAppState({ tasks: updatedTasks });
+  // };
+  const removeTask = (taskToRemove: TaskItem) => {
+    const updatedTasks = taskAppState.tasks.filter(
+      (task) => task.id !== taskToRemove.id
+    );
     setTaskAppState({ tasks: updatedTasks });
   };
 
@@ -70,7 +87,12 @@ const TaskApp = () => {
             Pending
           </h1>
           <TaskForm addTask={addTask} />
-          <TaskList tasks={taskAppState.tasks} onDelete={deleteTask} />
+          {/* <TaskList tasks={taskAppState.tasks} onDelete={deleteTask} /> */}
+          <ol>
+            <li>
+              <TaskList tasks={taskAppState.tasks} removeTask={removeTask} />
+            </li>
+          </ol>
         </div>
       </div>
     </div>

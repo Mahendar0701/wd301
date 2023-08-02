@@ -1,24 +1,32 @@
 // import React from "react";
 import Task from "./Task";
 import { TaskItem } from "./types";
-interface Props {
+// interface Props {
+//   tasks: TaskItem[];
+//   onDelete: (index: number) => void;
+// }
+
+interface TaskListProps {
   tasks: TaskItem[];
-  onDelete: (index: number) => void;
+  removeTask: (task: TaskItem) => void;
 }
 // interface TaskItem {
 //   title: string;
 // }
 // interface State {}
 
-const TaskList = (props: Props) => {
-  const list = props.tasks.map((task, idx) => (
+const TaskList = (props: TaskListProps) => {
+  const { removeTask } = props;
+  const list = props.tasks.map((task) => (
     <li>
       <Task
-        key={idx}
-        title={task.title}
-        description={task.description}
-        dueDate={task.dueDate}
-        onDelete={() => props.onDelete(idx)}
+        item={task}
+        // key={idx}
+        // title={task.title}
+        // description={task.description}
+        // dueDate={task.dueDate}
+        removeTask={removeTask}
+        // onDelete={() => props.onDelete(idx)}
       />
     </li>
   ));
