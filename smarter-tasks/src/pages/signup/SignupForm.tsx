@@ -72,6 +72,7 @@ const SignupForm = () => {
           className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
         /> */}
         <input
+          id="organisationName"
           type="text"
           placeholder="Enter Organization name..."
           autoFocus
@@ -94,6 +95,7 @@ const SignupForm = () => {
           className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
         /> */}
         <input
+          id="userName"
           type="text"
           placeholder="Enter User name..."
           autoFocus
@@ -114,6 +116,7 @@ const SignupForm = () => {
           className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
         /> */}
         <input
+          id="userEmail"
           type="text"
           placeholder="Enter email..."
           autoFocus
@@ -136,6 +139,7 @@ const SignupForm = () => {
           className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
         /> */}
         <input
+          id="userPassword"
           type="password"
           placeholder="Enter password..."
           autoFocus

@@ -62,6 +62,7 @@ const SigninForm = () => {
           className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
         /> */}
         <input
+          id="email"
           type="text"
           placeholder="Enter email..."
           autoFocus
@@ -84,6 +85,7 @@ const SigninForm = () => {
           className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
         /> */}
         <input
+          id="password"
           type="password"
           placeholder="Enter project name..."
           autoFocus
