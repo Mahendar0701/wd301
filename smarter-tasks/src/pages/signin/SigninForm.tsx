@@ -1,18 +1,30 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState } from "react";
-// First we will import the API_ENDPOINT constant from the `config` folder
+import { useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+
 import { API_ENDPOINT } from "../../config/constants";
 import { useNavigate } from "react-router-dom";
 
-const SigninForm: React.FC = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+type Inputs = {
+  email: string;
+  password: string;
+};
+
+const SigninForm = () => {
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+
+  const [error] = useState(null);
 
   const navigate = useNavigate();
-  // Then we will define the handle submit function
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const { email, password } = data;
     try {
       const response = await fetch(`${API_ENDPOINT}/users/sign_in`, {
         method: "POST",
@@ -24,40 +36,61 @@ const SigninForm: React.FC = () => {
         throw new Error("Sign-in failed");
       }
       console.log("Sign-in successful");
-      // Extract the response body as JSON data
+
       const data = await response.json();
       // After successful signin, first we will save the token in localStorage
       localStorage.setItem("authToken", data.token);
       localStorage.setItem("userData", JSON.stringify(data.user));
-      return navigate("/dashboard");
+      // return navigate("/dashboard");
+      navigate("/account");
     } catch (error) {
       console.error("Sign-in failed:", error);
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
+    // <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div>
+        {error && <span>{error}</span>}
         <label className="block text-gray-700 font-semibold mb-2">Email:</label>
-        <input
+        {/* <input
           type="email"
           name="email"
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
+        /> */}
+        <input
+          type="text"
+          placeholder="Enter email..."
+          autoFocus
+          {...register("email", { required: true })}
+          className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
+            errors.email ? "border-red-500" : ""
+          }`}
         />
       </div>
       <div>
         <label className="block text-gray-700 font-semibold mb-2">
           Password:
         </label>
-        <input
+        {/* <input
           type="password"
           name="password"
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
+        /> */}
+        <input
+          type="password"
+          placeholder="Enter project name..."
+          autoFocus
+          {...register("password", { required: true })}
+          className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
+            errors.password ? "border-red-500" : ""
+          }`}
         />
       </div>
       <button
@@ -72,20 +105,23 @@ const SigninForm: React.FC = () => {
 
 export default SigninForm;
 
+// /* eslint-disable react-hooks/rules-of-hooks */
 // import React, { useState } from "react";
+// // First we will import the API_ENDPOINT constant from the `config` folder
 // import { API_ENDPOINT } from "../../config/constants";
 // import { useNavigate } from "react-router-dom";
 
 // const SigninForm: React.FC = () => {
 //   const [email, setEmail] = useState("");
 //   const [password, setPassword] = useState("");
-//   const navigate = useNavigate();
 
+//   const navigate = useNavigate();
+//   // Then we will define the handle submit function
 //   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 //     event.preventDefault();
 
 //     try {
-//       const response = await fetch(`${API_ENDPOINT}/users/login`, {
+//       const response = await fetch(`${API_ENDPOINT}/users/sign_in`, {
 //         method: "POST",
 //         headers: { "Content-Type": "application/json" },
 //         body: JSON.stringify({ email, password }),
@@ -94,23 +130,18 @@ export default SigninForm;
 //       if (!response.ok) {
 //         throw new Error("Sign-in failed");
 //       }
-
 //       console.log("Sign-in successful");
-
-//       // localStorage.setItem("authenticated", "true");
-
 //       // Extract the response body as JSON data
 //       const data = await response.json();
-
 //       // After successful signin, first we will save the token in localStorage
 //       localStorage.setItem("authToken", data.token);
 //       localStorage.setItem("userData", JSON.stringify(data.user));
-//       return navigate("/dashboard");
+//       // return navigate("/dashboard");
+//       navigate("/account");
 //     } catch (error) {
 //       console.error("Sign-in failed:", error);
 //     }
 //   };
-
 //   return (
 //     <form onSubmit={handleSubmit}>
 //       <div>
