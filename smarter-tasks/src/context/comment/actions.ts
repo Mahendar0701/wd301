@@ -69,10 +69,10 @@
 //   }
 // };
 
-// Import required type annotations
 import { API_ENDPOINT } from "../../config/constants";
 import { CommentAvailableAction, CommentsDispatch } from "./types";
 
+//add comment
 export const addComment = async (
   dispatch: CommentsDispatch,
   project_id: string,
@@ -118,7 +118,7 @@ export const addComment = async (
   }
 };
 
-// Getcomments
+//fetch comments
 export const fetchComments = async (
   dispatch: CommentsDispatch,
   project_id: string,
