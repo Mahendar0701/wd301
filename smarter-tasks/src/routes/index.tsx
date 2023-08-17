@@ -2,7 +2,7 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import AccountLayout from "../layouts/account";
-import ProtectedRoute from "./ProtectedRoutes";
+import ProtectedRoute from "./ProtectedRoute";
 import Signin from "../pages/signin";
 import Signup from "../pages/signup";
 import Logout from "../pages/logout";
