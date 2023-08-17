@@ -1,9 +1,9 @@
-// const Members = () => {
-//   return <h2>Members</h2>;
-// };
-// export default Members;
-import MemberList from "./MemberList";
+// import MemberList from "./MemberList";
 import NewMember from "./NewMember";
+import React, { Suspense } from "react";
+const MemberList = React.lazy(() => import("./MemberList"));
+// import NewProject from "./NewProject";
+import ErrorBoundary from "../../components/ErrorBoundary";
 const Members = () => {
   const userData = JSON.parse(localStorage.getItem("userData"));
   return (
@@ -20,8 +20,11 @@ const Members = () => {
           <NewMember />
         </div>
       </div>
-
-      <MemberList />
+      <ErrorBoundary>
+        <Suspense fallback={<div className="suspense-loading">Loading...</div>}>
+          <MemberList />
+        </Suspense>
+      </ErrorBoundary>
     </>
   );
 };

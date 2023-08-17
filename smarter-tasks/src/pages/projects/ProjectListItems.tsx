@@ -13,6 +13,10 @@ export default function ProjectListItems() {
     return <span>Loading...</span>;
   }
 
+  // if (projects.length === 0) {
+  //   throw Error("Error!!!");
+  // }
+
   if (isError) {
     return <span>{errorMessage}</span>;
   }

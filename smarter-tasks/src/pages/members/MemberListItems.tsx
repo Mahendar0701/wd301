@@ -24,6 +24,10 @@ export default function MemberListItems() {
     return <span>Loading...</span>;
   }
 
+  // if (Members.length === 0) {
+  //   throw Error("Error!!!");
+  // }
+
   if (isError) {
     return <span>{errorMessage}</span>;
   }

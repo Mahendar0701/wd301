@@ -23,8 +23,13 @@ const ProjectDetails = () => {
     return <>No such Project!</>;
   }
 
+  // if (selectedProject.length === 0) {
+  //   throw Error("Error!!!");
+  // }
+
   if (tasksState.isLoading) {
     return <>Loading...</>;
+    // throw Error("Error!!!");
   }
   return (
     <>
