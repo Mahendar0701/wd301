@@ -5,12 +5,14 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { addMember } from "../../context/members/actions";
 
 import { useMembersDispatch } from "../../context/members/context";
+import { useTranslation } from "react-i18next";
 type Inputs = {
   name: string;
   email: string;
   password: string;
 };
 const NewMember = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
   const [error, setError] = useState(null);
@@ -50,7 +52,7 @@ const NewMember = () => {
         onClick={openModal}
         className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
       >
-        New Member
+        {t("New")} {t("Member")}
       </button>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -81,7 +83,7 @@ const NewMember = () => {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Create new member
+                    {t("Create")} {t("New")} {t("Member")}
                   </Dialog.Title>
                   <div className="mt-2">
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -125,14 +127,14 @@ const NewMember = () => {
                         type="submit"
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 mr-2 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >
-                        Create
+                        {t("Submit")}
                       </button>
                       <button
                         type="submit"
                         onClick={closeModal}
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >
-                        Cancel
+                        {t("Cancel")}
                       </button>
                     </form>
                   </div>

@@ -4,8 +4,10 @@ import { useCommentsDispatch } from "../../context/comment/context";
 import { useParams } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { CommentsPayload } from "../../context/comment/types";
+import { useTranslation } from "react-i18next";
 
 const NewComment = () => {
+  const { t } = useTranslation();
   const { projectID, taskID } = useParams();
   const commentDispatch = useCommentsDispatch();
   const {
@@ -44,7 +46,7 @@ const NewComment = () => {
           id="addCommentBtn"
           className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4"
         >
-          Add Comment
+          Add {t("Comments")}
         </button>
       </form>
     </div>

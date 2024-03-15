@@ -3,6 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 
 import { API_ENDPOINT } from "../../config/constants";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 type Inputs = {
   email: string;
@@ -10,8 +11,7 @@ type Inputs = {
 };
 
 const SigninForm = () => {
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
+  const { t } = useTranslation();
 
   const [error] = useState(null);
 
@@ -74,7 +74,7 @@ const SigninForm = () => {
       </div>
       <div>
         <label className="block text-gray-700 font-semibold mb-2">
-          Password:
+          {t("Password")}:
         </label>
         {/* <input
           type="password"
@@ -99,7 +99,7 @@ const SigninForm = () => {
         type="submit"
         className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4"
       >
-        Sign In
+        {t("Signin")}
       </button>
     </form>
   );

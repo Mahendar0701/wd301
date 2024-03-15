@@ -6,6 +6,7 @@ import { ThemeContext } from "./context/theme";
 import { ProjectsProvider } from "./context/projects/context";
 import { MembersProvider } from "./context/members/context";
 import { CommentsProvider } from "./context/comment/context";
+import "./i18n";
 
 const App = () => {
   const { theme } = useContext(ThemeContext);

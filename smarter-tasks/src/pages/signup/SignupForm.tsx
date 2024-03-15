@@ -3,6 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 
 import { API_ENDPOINT } from "../../config/constants";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 type Inputs = {
   name: string;
@@ -12,6 +13,7 @@ type Inputs = {
 };
 
 const SignupForm = () => {
+  const { t } = useTranslation();
   const [error] = useState(null);
 
   const navigate = useNavigate();
@@ -61,7 +63,7 @@ const SignupForm = () => {
       <div>
         {error && <span>{error}</span>}
         <label className="block text-gray-700 font-semibold mb-2">
-          Organisation Name:
+          Organisation {t("Name")}:
         </label>
         {/* <input
           type="text"
@@ -84,7 +86,7 @@ const SignupForm = () => {
       </div>
       <div>
         <label className="block text-gray-700 font-semibold mb-2">
-          Your Name:
+          Your {t("Name")}:
         </label>
         {/* <input
           type="text"
@@ -128,7 +130,7 @@ const SignupForm = () => {
       </div>
       <div>
         <label className="block text-gray-700 font-semibold mb-2">
-          Password:
+          {t("Password")}:
         </label>
         {/* <input
           type="password"
@@ -153,7 +155,7 @@ const SignupForm = () => {
         type="submit"
         className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4"
       >
-        Sign up
+        {t("Signup")}
       </button>
     </form>
   );

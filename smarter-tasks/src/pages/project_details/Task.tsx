@@ -8,11 +8,29 @@ import React, { forwardRef, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useTasksDispatch } from "../../context/task/context";
 import { deleteTask } from "../../context/task/actions";
+import { useTranslation } from "react-i18next";
+
+const dateFormatter = (isoDate, t, i18n) => {
+  const date = new Date(isoDate);
+
+  const locale = i18n.language === "es" ? "fr-ES" : "en-US";
+
+  const options = {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  };
+
+  const formattedDate = date.toLocaleDateString(locale, options);
+
+  return formattedDate;
+};
 
 const Task = forwardRef<
   HTMLDivElement,
   React.PropsWithChildren<{ task: TaskDetails }>
 >((props, ref) => {
+  const { t, i18n } = useTranslation();
   const taskDispatch = useTasksDispatch();
   const { projectID } = useParams();
   const { task } = props;
@@ -26,13 +44,13 @@ const Task = forwardRef<
           <div>
             <h2 className="text-base font-bold my-1">{task.title}</h2>
             <p className="text-sm text-slate-500">
-              {new Date(task.dueDate).toDateString()}
+              {dateFormatter(task.dueDate, t, i18n)}
             </p>
             <p className="text-sm text-slate-500">
-              Description: {task.description}
+              {t("Description")}: {task.description}
             </p>
             <p className="text-sm text-slate-500">
-              Assignee: {task.assignedUserName ?? "-"}
+              {t("Assignee")}: {task.assignedUserName ?? "-"}
             </p>
           </div>
           <button

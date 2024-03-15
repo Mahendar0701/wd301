@@ -5,6 +5,7 @@ import { useMembersState } from "../../context/members/context";
 import { SubmitHandler } from "react-hook-form";
 import { useMembersDispatch } from "../../context/members/context";
 import { removeMember } from "../../context/members/actions";
+import { useTranslation } from "react-i18next";
 
 type Inputs = {
   id: number;
@@ -12,6 +13,7 @@ type Inputs = {
 export default function MemberListItems() {
   // I'll define a new constant called `state`, to call the useProjectsState() hook,
   // and get access to projects state.
+  const { t } = useTranslation();
   const state: any = useMembersState();
 
   const dispatchMembers = useMembersDispatch();
@@ -67,7 +69,7 @@ export default function MemberListItems() {
             onClick={() => onSubmit({ id: user.id })}
             className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
           >
-            Delete
+            {t("Delete")}
           </button>
         </div>
       ))}

@@ -9,9 +9,9 @@ export default function ProjectListItems() {
   const { projects, isLoading, isError, errorMessage } = state;
   console.log(projects);
 
-  if (projects.length === 0 && isLoading) {
-    return <span>Loading...</span>;
-  }
+  // if (projects.length === 0 && isLoading) {
+  //   return <span>Loading...</span>;
+  // }
 
   // if (projects.length === 0) {
   //   throw Error("Error!!!");

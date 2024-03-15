@@ -7,10 +7,12 @@ import { addProject } from "../../context/projects/actions";
 
 // Then I'll import the useProjectsDispatch hook from projects context
 import { useProjectsDispatch } from "../../context/projects/context";
+import { useTranslation } from "react-i18next";
 type Inputs = {
   name: string;
 };
 const NewProject = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
   // Next, I'll add a new state to handle errors.
@@ -54,7 +56,7 @@ const NewProject = () => {
         onClick={openModal}
         className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
       >
-        New Project
+        {t("New")} {t("Project")}
       </button>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -85,7 +87,7 @@ const NewProject = () => {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Create new project
+                    {t("Create")} {t("New")} {t("Project")}
                   </Dialog.Title>
                   <div className="mt-2">
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -107,14 +109,14 @@ const NewProject = () => {
                         type="submit"
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 mr-2 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >
-                        Submit
+                        {t("Submit")}
                       </button>
                       <button
                         type="submit"
                         onClick={closeModal}
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >
-                        Cancel
+                        {t("Cancel")}
                       </button>
                     </form>
                   </div>
