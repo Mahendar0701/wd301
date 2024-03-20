@@ -1,11 +1,13 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
+import { sentryVitePlugin } from "@sentry/vite-plugin";
 
 export default ({ mode }) => {
   return defineConfig({
     build: {
       outDir: "dist",
+      sourcemap: true, // Source map generation must be turned on
     },
     plugins: [
       react(),
@@ -46,6 +48,12 @@ export default ({ mode }) => {
           ],
           theme_color: "#AAF",
         },
+      }),
+
+      sentryVitePlugin({
+        authToken: process.env.SENTRY_AUTH_TOKEN,
+        org: "chaitanya-bharathi-institut-cd",
+        project: "wd301",
       }),
     ],
     define: {

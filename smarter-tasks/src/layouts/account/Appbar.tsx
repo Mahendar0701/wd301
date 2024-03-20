@@ -25,6 +25,8 @@ const Appbar = () => {
   const toggleLanguage = (locale) => {
     i18n.changeLanguage(locale); // Change the language using i18n's changeLanguage method
     setEnabled(!enabled);
+
+    throw new Error("An error occurred while changing the language");
   };
 
   return (

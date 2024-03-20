@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // import React from "react";
 import { useProjectsState } from "../../context/projects/context";
@@ -9,9 +10,12 @@ export default function ProjectListItems() {
   const { projects, isLoading, isError, errorMessage } = state;
   console.log(projects);
 
-  // if (projects.length === 0 && isLoading) {
-  //   return <span>Loading...</span>;
-  // }
+  console.log(projects); //Console Log Statement for debugging
+  debugger;
+
+  if (projects.length === 0 && isLoading) {
+    return <span>Loading...</span>;
+  }
 
   // if (projects.length === 0) {
   //   throw Error("Error!!!");
